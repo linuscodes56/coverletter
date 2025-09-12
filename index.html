@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sunil Kumar | Cover Letter</title>
   <style>
+    /* ===== GENERAL STYLES ===== */
     body {
       margin: 0;
       padding: 0;
@@ -48,17 +49,20 @@
     header p {
       margin: 5px 0;
       color: #555;
+      word-wrap: break-word;
     }
 
+    /* ===== TYPING TEXT ===== */
     .typing {
       font-size: 1.3rem;
       color: #0077b6;
       margin-top: 10px;
       font-weight: bold;
       border-right: 2px solid #0077b6;
-      white-space: nowrap;
+      white-space: normal;
       overflow: hidden;
-      width: 0;
+      display: inline-block;
+      max-width: 100%;
       animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
     }
 
@@ -70,9 +74,9 @@
       50% { border-color: transparent }
     }
 
-    /* Paper effect for cover letter */
+    /* ===== COVER LETTER ===== */
     .cover-letter {
-      background: #faf9f6; /* light paper tone */
+      background: #faf9f6;
       padding: 25px;
       border-radius: 8px;
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15),
@@ -80,6 +84,7 @@
       line-height: 1.6;
       position: relative;
       overflow: hidden;
+      font-size: 0.95rem;
     }
 
     .cover-letter::before {
@@ -110,7 +115,6 @@
       text-align: justify;
     }
 
-    /* Awards hover style */
     .award {
       font-weight: bold;
       color: #d35400;
@@ -122,49 +126,40 @@
       text-shadow: 0 0 10px rgba(230, 126, 34, 0.7);
     }
 
-    .buttons {
-      text-align: center;
-      margin: 20px 0;
-    }
-    .buttons a, .buttons button {
-      display: inline-block;
-      margin: 10px;
+    /* ===== BUTTONS ===== */
+    .buttons a, .buttons button, a.download-btn {
       padding: 12px 20px;
+      font-size: 0.95rem;
+      margin: 10px 0;
+      border-radius: 6px;
       background: #0077b6;
       color: #fff;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: 0.3s;
       border: none;
+      text-decoration: none;
       cursor: pointer;
+      transition: 0.3s;
+      display: inline-block;
     }
-    .buttons a:hover, .buttons button:hover {
+    .buttons a:hover, .buttons button:hover, a.download-btn:hover {
       background: #023e8a;
     }
 
+    /* ===== FOOTER ===== */
     footer {
       text-align: center;
       margin-top: 30px;
       font-size: 0.9rem;
       color: #777;
     }
-
-    a {
-      color: #0077b6;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    a { color: #0077b6; text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     @keyframes fadeIn {
       from {opacity: 0; transform: translateY(20px);}
       to {opacity: 1; transform: translateY(0);}
     }
 
-    /* Floating tech icons */
+    /* ===== FLOATING ICONS ===== */
     .icons {
       position: fixed;
       top: 0;
@@ -185,23 +180,42 @@
       to { transform: translateY(100vh) rotate(360deg);}
     }
 
-    /* Dark mode */
+    /* ===== DARK MODE ===== */
     body.dark {
       background: #111;
       color: #eee;
     }
-    body.dark .container {
-      background: rgba(30,30,30,0.95);
-      color: #eee;
-    }
+    body.dark .container { background: rgba(30,30,30,0.95); color: #eee; }
     body.dark header h1 { color: #ddd; }
     body.dark .cover-letter h2 { color: #eee; }
+
+    /* ===== RESPONSIVE ===== */
+    @media screen and (max-width: 768px) {
+      .container { margin: 40px 15px; padding: 20px 15px; }
+      header h1 { font-size: 1.5rem; }
+      .typing { font-size: 1rem; }
+      .cover-letter { font-size: 0.9rem; padding: 15px; }
+      .cover-letter h2 { font-size: 1rem; }
+      .icons img { width: 25px; }
+      a.download-btn { font-size: 0.9rem; padding: 10px 14px; }
+    }
+
+    @media screen and (max-width: 480px) {
+      .container { margin: 20px 10px; padding: 15px 12px; }
+      header h1 { font-size: 1.3rem; }
+      .typing { font-size: 0.95rem; }
+      .cover-letter { font-size: 0.85rem; padding: 10px; }
+      .cover-letter h2 { font-size: 0.95rem; }
+      .icons img { width: 20px; }
+      a.download-btn { top: 10px; right: 10px; padding: 8px 12px; font-size: 0.85rem; }
+    }
   </style>
 </head>
 <body>
+  <!-- MATRIX BACKGROUND -->
   <canvas id="matrix"></canvas>
 
-  <!-- Floating tech icons -->
+  <!-- FLOATING ICONS -->
   <div class="icons">
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" style="left:10%; animation-delay:0s;">
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" style="left:30%; animation-delay:4s;">
@@ -210,26 +224,14 @@
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" style="left:90%; animation-delay:6s;">
   </div>
 
+  <!-- MAIN CONTAINER -->
   <div class="container">
-    <a href="SunilKumarResume.pdf" download 
-     style="
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        padding: 10px 16px;
-        background: #0077b6;
-        color: #fff;
-        border-radius: 6px;
-        text-decoration: none;
-        font-size: 0.95rem;
-        transition: 0.3s;
-        z-index: 2;
-     "
-     onmouseover="this.style.background='#023e8a';" 
-     onmouseout="this.style.background='#0077b6';"
-  >
-    📄 Download Resume
-  </a>
+    <!-- DOWNLOAD BUTTON -->
+    <a href="SunilKumarResume.pdf" download class="download-btn">
+      📄 Download Resume
+    </a>
+
+    <!-- HEADER -->
     <header>
       <h1>Sunil Kumar</h1>
       <p>📍 Gurugram, India | 📧 <a href="mailto:sunilkumarcodes@gmail.com">sunilkumarcodes@gmail.com</a></p>
@@ -237,49 +239,42 @@
       <div class="typing">Hi, I’m Sunil Kumar — FullStack Software Engineer 🚀</div>
     </header>
 
+    <!-- COVER LETTER -->
     <section class="cover-letter">
       <h2>Dear Hiring Manager,</h2>
-      <p>
-        I am writing to express my interest in a Software Developer position at your esteemed organization. 
-        With <span id="exp"></span> of experience as a Backend Software Engineer, I have designed and implemented scalable backend systems, 
-        optimized APIs, and built observability pipelines. My work at Gemini Solutions involved developing 
-        role-based workflow systems, implementing microservices, and integrating LLM-powered features within production systems.
+      <p>I am writing to express my interest in a Software Developer position at your esteemed organization. 
+         With <span id="exp"></span> of experience as a Backend Software Engineer, I have designed and implemented scalable backend systems, 
+         optimized APIs, and built observability pipelines. My work at Gemini Solutions involved developing 
+         role-based workflow systems, implementing microservices, and integrating LLM-powered features within production systems.
       </p>
-      <p>
-        My technical expertise includes Python, FastAPI, Flask, SQL, Docker, AWS, and monitoring stacks like 
-        SigNoz and OpenTelemetry. I take pride in architecting robust systems, optimizing performance 
-        (such as reducing API response times from 15s to 200ms), and delivering solutions that improve user experience 
-        and operational efficiency.
+      <p>My technical expertise includes Python, FastAPI, Flask, SQL, Docker, AWS, and monitoring stacks like 
+         SigNoz and OpenTelemetry. I take pride in architecting robust systems, optimizing performance 
+         (such as reducing API response times from 15s to 200ms), and delivering solutions that improve user experience 
+         and operational efficiency.
       </p>
-      <p>
-        Beyond coding, I thrive in cross-functional collaborations, agile environments, and mentoring peers. 
-        My achievements, such as the 
-        <span class="award">🏆 Rising Star</span> 
-        and 
-        <span class="award">🌟 On-the-Spot Awards</span>, 
-        reflect my dedication to impactful contributions. 
-        I am particularly excited about leveraging AI/LLM integrations and scalable cloud solutions in real-world products.
+      <p>Beyond coding, I thrive in cross-functional collaborations, agile environments, and mentoring peers. 
+         My achievements, such as the 
+         <span class="award">🏆 Rising Star</span> 
+         and 
+         <span class="award">🌟 On-the-Spot Awards</span>, 
+         reflect my dedication to impactful contributions. 
+         I am particularly excited about leveraging AI/LLM integrations and scalable cloud solutions in real-world products.
       </p>
-      <p>
-        I would welcome the opportunity to contribute my skills and experience to your team, and I am confident in my ability 
-        to quickly adapt, learn, and deliver value. Thank you for considering my application. 
+      <p>I would welcome the opportunity to contribute my skills and experience to your team, and I am confident in my ability 
+         to quickly adapt, learn, and deliver value. Thank you for considering my application. 
       </p>
       <p>Sincerely,<br>Sunil Kumar</p>
     </section>
-
-    <!-- <div class="buttons">
-      <a href="resume.pdf" download>📄 Download Resume</a>
-       <button onclick="contactMe()">💼 Hire Me</button> 
-    </div> -->
 
     <footer>
       &copy; 2025 Sunil Kumar | Designed with ❤️ in HTML, CSS & JS
     </footer>
   </div>
 
+  <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
-    // Matrix code rain effect
+    // MATRIX EFFECT
     const canvas = document.getElementById("matrix");
     const ctx = canvas.getContext("2d");
     canvas.height = window.innerHeight;
@@ -307,67 +302,31 @@
       canvas.width = window.innerWidth;
     });
 
-    // Contact button
-    function contactMe() {
-      window.location.href = "mailto:sunilkumarcodes@gmail.com?subject=Hiring%20Opportunity&body=Hi%20Sunil,%20we'd%20like%20to%20discuss%20a%20Software%20Developer%20opportunity%20with%20you.";
-    }
-
-    // Dark mode toggle
-    function toggleMode() {
-      document.body.classList.toggle("dark");
-    }
-
-    // Dynamic experience calculation
+    // EXPERIENCE CALCULATION
     function calculateExperience() {
       const startDate = new Date("2023-01-01");
       const today = new Date();
-
       let years = today.getFullYear() - startDate.getFullYear();
       let months = today.getMonth() - startDate.getMonth();
-
-      if (months < 0) {
-        years--;
-        months += 12;
-      }
-
+      if (months < 0) { years--; months += 12; }
       let experienceText = "";
       if (years > 0) experienceText += years + (years === 1 ? " year " : " years ");
       if (months > 0) experienceText += months + (months === 1 ? " month" : " months");
-
       document.getElementById("exp").innerText = experienceText.trim();
     }
-
     calculateExperience();
 
-    // Confetti effect
+    // CONFETTI ON AWARD HOVER
     function launchConfetti() {
-      const duration = 2 * 1000; // 2 seconds
+      const duration = 2 * 1000;
       const end = Date.now() + duration;
-
       (function frame() {
-        confetti({
-          particleCount: 7,
-          angle: 60,
-          spread: 55,
-          origin: { x: 0 }
-        });
-        confetti({
-          particleCount: 7,
-          angle: 120,
-          spread: 55,
-          origin: { x: 1 }
-        });
-
-        if (Date.now() < end) {
-          requestAnimationFrame(frame);
-        }
+        confetti({ particleCount: 7, angle: 60, spread: 55, origin: { x: 0 }});
+        confetti({ particleCount: 7, angle: 120, spread: 55, origin: { x: 1 }});
+        if (Date.now() < end) requestAnimationFrame(frame);
       })();
     }
-
-    // Trigger confetti on awards hover
-    document.querySelectorAll(".award").forEach(el => {
-      el.addEventListener("mouseenter", launchConfetti);
-    });
+    document.querySelectorAll(".award").forEach(el => { el.addEventListener("mouseenter", launchConfetti); });
   </script>
 </body>
 </html>
